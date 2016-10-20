@@ -3,10 +3,6 @@ package Campionato;
 import java.util.HashMap;
 
 
-
-
-
-
 public class Campionato {
 	//attributi
 	private String nome;
@@ -26,7 +22,7 @@ public class Campionato {
 	}
 	
 	
-	//metodi
+	//metodi getter-setter
 	public String getNome() {
 		return nome;
 	}
@@ -58,16 +54,24 @@ public class Campionato {
 	public void setListaPartita(HashMap<String,Partita> listaPartita) {
 		ListaPartita = listaPartita;
 	}
-
+	
+	
+	
+	
+	//metodo per aggiungere giocatori al campionato
 	public void aggiungiGiocatore(Giocatore g){
 		ListaGiocatori.put(g.getcF(),g);
 		
 	}
 	
+	
+	//metodo per aggiungere squadra al campionato
 	public void aggiungiSquadra(Squadra s){
 		ListaSquadre.put(s.getNome(), s);
 	}
 	
+	
+	//metodo per aggiungere partita al campionato
 	public void aggiungiPartita(Partita p){
 		
 		ListaPartita.put(p.toString(), p);
@@ -78,6 +82,23 @@ public class Campionato {
 			
 			g1.setGoal(g1.getGoal()+g.getGoal());
 		}
+		
+		for(Giocatore g:p.getListaAmmoniti().values()){
+
+			Giocatore g1 =ListaGiocatori.get(g.getcF());
+			
+			g1.setAmmonizioni(g1.getAmmonizioni()+g.getAmmonizioni());
+		}
+		
+		
+		for(Giocatore g:p.getListaEspulsi().values()){
+
+			Giocatore g1 =ListaGiocatori.get(g.getcF());
+			
+			g1.setEspulsione(g1.getEspulsione()+g.getEspulsione());
+		}
+		
+		
 	}
 	
 	

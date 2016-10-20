@@ -4,14 +4,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 
-
-
-
-
 public class ServizioCampionato {
-
-
-
 
 	//metodo 1
 
